@@ -115,18 +115,18 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
+    #Displays the most common month
     common_month = df['month'].mode()[0]
 
     print(f"Most Common Month (1 = January,...,6 = June): {common_month}")
 
-    # TO DO: display the most common day of week
+    #Displays the most common day of week
     common_day = df['day_of_week'].mode()[0]
 
     print(f"\nMost Common Day: {common_day}")
 
 
-    # TO DO: display the most common start hour
+    #Displays the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     
     #Uses mode method to find the most popular hour
