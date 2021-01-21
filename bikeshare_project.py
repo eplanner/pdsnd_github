@@ -11,12 +11,12 @@ def get_filters():
     Asks user to specify a city, month, and day to analyze.
 
     Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        (str) city - city name to analyze
+        (str) month - name of the month to filter by, or "all" to apply on month filter
+        (str) day - name of the day of week to filter by, or "all" to apply on day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    print('Hello! Let\'s explore some US bikeshare data today!')
+    # User input for city (chicago, new york city, washington). HINT: a while loop is used to handle invalid inputs
     city = ''
     while city not in CITY_DATA.keys():
         print("\nWelcome to this program. Which city will you like to see data for?")
@@ -109,7 +109,7 @@ def get_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel.Args:
+    """Shows the statistics on the most frequent times of travel.Args:
         param1 (df): The data frame you wish to work with.
     Returns:
         None.
