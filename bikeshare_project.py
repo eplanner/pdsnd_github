@@ -150,19 +150,19 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    # Displays the most commonly used start station
     common_start_station = df['Start Station'].mode()[0]
 
     print(f"The most commonly used start station: {common_start_station}")
 
 
-    # TO DO: display most commonly used end station
+    # Displays the most commonly used end station
     common_end_station = df['End Station'].mode()[0]
 
     print(f"\nThe most commonly used end station: {common_end_station}")
 
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # Displays the most frequent combination of start station and end station trip
     df['Start To End'] = df['Start Station'].str.cat(df['End Station'], sep=' to ')
     combo = df['Start To End'].mode()[0]
 
@@ -249,7 +249,7 @@ def user_stats(df):
     print('-'*40)
 	
 #Function to display the data frame itself as per user request
-def display_raw_data(df):
+def show_raw_data(df):
     """Displays 5 rows of data from the csv file for the selected city.
     Args:
         param1 (df): The data frame you wish to work with.
@@ -265,14 +265,14 @@ def display_raw_data(df):
         print("\nDo you wish to view the raw data?")
         print("\nAccepted responses:\nYes or yes\nNo or no")
         raw_data = input().lower()
+		
         #The raw data from the df displays if user opts for it
         if raw_data == "yes":
             print(df.head())
         elif raw_data not in RESPONSE_LIST:
             print("\nPlease check your input again.")
-            print("Input does not match any of the accepted responses.")
-            print("\nRestarting...\n")
-
+            print("Input does not match any of the accepted responses. \nRestarting...\n")
+           
     #Function asking user if they want to continue viewing the raw data
     while raw_data == 'yes':
         print("Do you want to continue to view more raw data?")
@@ -291,7 +291,7 @@ def main():
         city, month, day = get_filters()
         df = get_data(city, month, day)
 
-        display_raw_data(df)
+        show_raw_data(df)
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
