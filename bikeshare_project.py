@@ -8,31 +8,30 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+    Asks user to select a city, month, and day to analyze.
 
     Returns:
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        (str) month - name of the month to filter by, or "all" to apply on month filter
+        (str) day - name of the day of week to filter by, or "all" to apply on day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    print('Hello! Let\'s explore some US bikeshare data today!')
+    # Function to get user's input for city (chicago, new york city, washington). HINT: we use a while loop to handle invalid inputs
     city = ''
     while city not in CITY_DATA.keys():
         print("\nWelcome to this program. Which city will you like to see data for?")
-        print("\nPlease choose your city:")
+        print("\nPlease choose a city:")
         print("\n1. Chicago 2. New York City 3. Washington")
         print("\nAccepted input:\nFull name of city; not case sensitive (e.g. chicago or CHICAGO).\nFull name in title case (e.g. Chicago).")
         city = input().lower()
 
         if city not in CITY_DATA.keys():
-            print("\nPlease check your input, it doesn\'t appear to be conforming to any of the accepted input formats.")
-            print("\nRestarting...")
+            print("\nPlease check your input, it doesn\'t appear to be conforming to any of the accepted input formats. \nRestarting...")
 
     print(f"\nYou have chosen {city.title()} as your city.")
 
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # Function to get user's input for month (all, january, february, ... , june)
     MONTH_DATA = {'january': 1, 'february': 2, 'march': 3, 'april': 4, 'may': 5, 'june': 6, 'all': 7}
     month = ''
     while month not in MONTH_DATA.keys():
@@ -42,13 +41,12 @@ def get_filters():
         month = input().lower()
 
         if month not in MONTH_DATA.keys():
-            print("\nInvalid input. Please try again in the accepted input format.")
-            print("\nRestarting...")
-
+            print("\nInvalid input. Please try again in the accepted input format. \nRestarting...")
+            
     print(f"\nYou have chosen {month.title()} as your month.")
 
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # Function to get user's input for day of week (all, monday, tuesday, ... sunday)
     DAY_LIST = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     day = ''
     while day not in DAY_LIST:
@@ -58,9 +56,8 @@ def get_filters():
         day = input().lower()
 
         if day not in DAY_LIST:
-            print("\nInvalid input. Please try again in one of the accepted input formats.")
-            print("\nRestarting...")
-
+            print("\nInvalid input. Please try again in one of the accepted input formats. \nRestarting...")
+        
     print(f"\nYou have chosen {day.title()} as your day.")
     print(f"\nYou have chosen to view data for city: {city.upper()}, month/s: {month.upper()} and day/s: {day.upper()}.")
     print('-'*40)
